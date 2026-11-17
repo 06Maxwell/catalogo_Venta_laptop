@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catálogo de venta de equipos usados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#1d2433;--mute:#667085;--line:#e3e8ef;--acc:#2a6f97;--warn:#fff4e5;--warnb:#e8890c}
+@media (prefers-color-scheme:dark){:root{--bg:#12161d;--card:#1b212b;--ink:#e8edf3;--mute:#9aa4b2;--line:#2c3440;--acc:#6fb3dc;--warn:#2d2416;--warnb:#d9881a}}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:40px 24px 24px;max-width:1240px;margin:0 auto}
+.tag{color:var(--acc);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(28px,4vw,40px);margin:8px 0 10px;line-height:1.1}
+header p{color:var(--mute);max-width:720px;line-height:1.55;margin:0}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:20px}
+.ph{border:1.5px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--mute);font-size:14px}.ph b{color:var(--ink);display:block;margin-bottom:4px}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar>div{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input,select{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+input{flex:1;min-width:180px}.count{color:var(--mute);font-size:13px;margin-left:auto}
+main{max-width:1240px;margin:0 auto;padding:20px 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;text-align:left;font:inherit;color:inherit;padding:0}
+.c:hover,.c:focus-visible{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.c img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--line)}
+.cb{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.no{font-size:11px;font-weight:700;color:var(--acc);letter-spacing:.06em}.c h3{margin:0;font-size:16px}
+.sp{font-size:13px;color:var(--mute);line-height:1.45}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:8px}
+.pill{font-size:12px;font-weight:600;padding:3px 8px;border-radius:99px}
+.Regular{background:#fdf3d7;color:#8a5a00}.Regular-mala{background:#fde9d7;color:#9a4a00}.Mala{background:#fde2e0;color:#b42318}
+.price{font-size:13px;color:var(--mute)}
+.obs{font-size:12.5px;background:var(--warn);border-left:3px solid var(--warnb);padding:5px 8px;border-radius:4px}
+dialog{border:none;border-radius:16px;padding:0;max-width:960px;width:94vw;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(10,14,20,.6)}
+.mg{display:grid;grid-template-columns:1fr;gap:0}.big{width:100%;aspect-ratio:4/3;object-fit:contain;background:#000;display:block;max-height:62vh}
+.th{display:flex;gap:8px;padding:10px 16px 0}.th img{width:90px;height:68px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.55;border:2px solid transparent}
+.th img.on{opacity:1;border-color:var(--acc)}
+.md{padding:14px 18px 20px}.md h2{margin:2px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:10px}
+.grid div{background:var(--bg);border-radius:8px;padding:8px 10px;font-size:14px}.grid span{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+.x{position:absolute;top:10px;right:10px;border:none;background:rgba(0,0,0,.55);color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:40px}
+footer{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--mute);font-size:13px}
+</style></head><body>
+<header><div class="tag">Programa de venta interna</div><h1>Catálogo de venta de equipos de cómputo usados</h1>
+<p>Laptops que se usaron en la empresa y ahora se ponen a la venta. Todos los equipos son <b>usados</b> y presentan desgaste estético. Toca cualquier equipo para ver sus 3 fotos y la ficha completa.</p>
+<div class="info"><div class="ph"><b>Condiciones de venta</b>Por definir por Dirección y el área Legal (quién puede comprar, forma de pago, garantía, entrega).</div>
+<div class="ph"><b>Contacto</b>Por definir.</div>
+<div class="ph"><b>Calificación de estética (1–10)</b>Se refiere al aspecto físico, no al funcionamiento.</div></div></header>
+<div class="bar"><div>
+<input id="q" placeholder="Buscar por número, modelo o procesador…" aria-label="Buscar">
+<select id="fm" aria-label="Marca"><option value="">Todas las marcas</option></select>
+<select id="fr" aria-label="RAM"><option value="">Cualquier RAM</option></select>
+<select id="fe" aria-label="Estética"><option value="">Cualquier estética</option><option value="7.5">7.5 o más</option><option value="7">7 o más</option><option value="6">6 o más</option></select>
+<select id="fo" aria-label="Orden"><option value="no">Ordenar: número</option><option value="est">Ordenar: mejor estética</option><option value="ram">Ordenar: más RAM</option></select>
+<span class="count" id="ct"></span></div></div>
+<main id="g"></main>
+<footer>Fotos reales de cada equipo. Precios por definir. Pantalla, gráficos, puertos y peso corresponden a la configuración base del fabricante para cada modelo.</footer>
+<dialog id="d"><div style="position:relative"><button class="x" id="dx" aria-label="Cerrar">✕</button><img class="big" id="bi" alt=""></div><div class="th" id="th"></div><div class="md" id="md"></div></dialog>
+<script>
+let D=[];const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+fetch('items.json').then(r=>r.json()).then(j=>{D=j;
+ [...new Set(D.map(x=>x.marca))].sort().forEach(m=>$('#fm').add(new Option(m,m)));
+ [...new Set(D.map(x=>x.ram))].sort((a,b)=>parseInt(a)-parseInt(b)).forEach(m=>$('#fr').add(new Option(m,m)));
+ render();});
+['q','fm','fr','fe','fo'].forEach(id=>$('#'+id).addEventListener('input',render));
+function render(){const q=$('#q').value.toLowerCase().trim(),m=$('#fm').value,r=$('#fr').value,e=$('#fe').value,o=$('#fo').value;
+ let L=D.filter(x=>(!m||x.marca==m)&&(!r||x.ram==r)&&(!e||x.est>=+e)&&(!q||`#${pad(x.no)} ${x.no} ${x.marca} ${x.modelo} ${x.cpu} ${x.obs} ${x.pantalla} ${x.graficos} ${x.puertos}`.toLowerCase().includes(q)));
+ L.sort((a,b)=>o=='est'?b.est-a.est||a.no-b.no:o=='ram'?parseInt(b.ram)-parseInt(a.ram)||a.no-b.no:a.no-b.no);
+ $('#ct').textContent=L.length+' de '+D.length+' equipos';
+ $('#g').innerHTML=L.length?L.map(x=>`<button class="c" data-n="${x.no}"><img loading="lazy" src="${x.img[0]}" alt="${esc(x.marca+' '+x.modelo)}">
+ <div class="cb"><div class="no">EQUIPO #${pad(x.no)}</div><h3>${esc(x.marca)} ${esc(x.modelo)}</h3>
+ <div class="sp">${esc(x.cpu)} · ${x.ram} RAM · ${esc(x.disco)}<br>${esc(x.pantalla)}</div>${x.obs?`<div class="obs">${esc(x.obs)}</div>`:''}
+ <div class="row"><span class="pill ${x.estlabel}">Estética ${x.est}/10</span><span class="price">Precio: por definir</span></div></div></button>`).join(''):'<div class="empty">No hay equipos con esos filtros.</div>';
+ document.querySelectorAll('.c').forEach(c=>c.onclick=()=>open_(+c.dataset.n));}
+function open_(n){const x=D.find(y=>y.no==n);
+ const show=i=>{$('#bi').src=x.img[i];document.querySelectorAll('#th img').forEach((t,k)=>t.classList.toggle('on',k==i));};
+ $('#th').innerHTML=x.img.map((s,i)=>`<img src="${s}" alt="Foto ${'ABC'[i]}">`).join('');
+ document.querySelectorAll('#th img').forEach((t,i)=>t.onclick=()=>show(i));
+ $('#md').innerHTML=`<div class="no">EQUIPO #${pad(x.no)}</div><h2>${esc(x.marca)} ${esc(x.modelo)}</h2>
+ <div class="grid"><div><span>Procesador</span>${esc(x.cpu)}</div><div><span>Memoria RAM</span>${x.ram}</div><div><span>Almacenamiento</span>${esc(x.disco)}</div>
+ <div><span>Estética</span>${x.est}/10</div><div><span>Precio</span>Por definir</div>
+ <div><span>Pantalla</span>${esc(x.pantalla)}</div><div><span>Gráficos</span>${esc(x.graficos)}</div><div><span>Peso aprox.</span>${esc(x.peso)}</div></div>
+ <div class="grid"><div style="grid-column:1/-1"><span>Puertos</span>${esc(x.puertos)}</div></div>
+ ${x.obs?`<div class="obs"><b>Observaciones:</b> ${esc(x.obs)}</div>`:'<div class="sp">Sin observaciones adicionales.</div>'}`;
+ show(0);$('#d').showModal();}
+$('#dx').onclick=()=>$('#d').close();$('#d').addEventListener('click',e=>{if(e.target.id=='d')$('#d').close();});
+</script></body></html>
