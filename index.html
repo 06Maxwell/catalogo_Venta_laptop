@@ -26,7 +26,9 @@ main{max-width:1240px;margin:0 auto;padding:20px 24px 60px;display:grid;grid-tem
 .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:8px}
 .pill{font-size:12px;font-weight:600;padding:3px 8px;border-radius:99px}
 .Regular{background:#fdf3d7;color:#8a5a00}.Regular-mala{background:#fde9d7;color:#9a4a00}.Mala{background:#fde2e0;color:#b42318}
-.price{font-size:13px;color:var(--mute)}
+.price{font-size:13px;color:var(--mute);text-align:right}.price b{display:block;font-size:17px;color:var(--ink)}.price small{font-size:11px}
+.mail{color:var(--ink);font-weight:600}
+.tc{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 16px}.tc summary{cursor:pointer;font-weight:600}.tc ol{margin:10px 0 2px;padding-left:20px;color:var(--mute);font-size:14px;line-height:1.55}.tc li{margin-bottom:6px}.tc li b{color:var(--ink)}
 .obs{font-size:12.5px;background:var(--warn);border-left:3px solid var(--warnb);padding:5px 8px;border-radius:4px}
 dialog{border:none;border-radius:16px;padding:0;max-width:960px;width:94vw;background:var(--card);color:var(--ink)}
 dialog::backdrop{background:rgba(10,14,20,.6)}
@@ -41,19 +43,19 @@ dialog::backdrop{background:rgba(10,14,20,.6)}
 footer{max-width:1240px;margin:0 auto;padding:0 24px 40px;color:var(--mute);font-size:13px}
 </style></head><body>
 <header><div class="tag">Programa de venta interna</div><h1>Catálogo de venta de equipos de cómputo usados</h1>
-<p>Laptops que se usaron en la empresa y ahora se ponen a la venta. Todos los equipos son <b>usados</b> y presentan desgaste estético. Toca cualquier equipo para ver sus 3 fotos y la ficha completa.</p>
-<div class="info"><div class="ph"><b>Condiciones de venta</b>Por definir por Dirección y el área Legal (quién puede comprar, forma de pago, garantía, entrega).</div>
-<div class="ph"><b>Contacto</b>Por definir.</div>
-<div class="ph"><b>Calificación de estética (1–10)</b>Se refiere al aspecto físico, no al funcionamiento.</div></div></header>
+<p>Laptops que se usaron en la empresa y ahora se ponen a la venta. Todos los equipos son <b>usados</b> y presentan desgaste estético. Toca cualquier equipo para ver sus 3 fotos y la ficha completa. Antes de apartar, lee los <a href="#terminos" onclick="document.getElementById('terminos').open=true">términos y condiciones</a>.</p>
+<div class="info"><div class="ph"><b>Cómo comprar</b>Solo personal activo · máximo 2 equipos por persona · apartado por correo en orden de llegada · pago de contado o por nómina hasta en 6 quincenas · entrega en oficina Omega.</div>
+<div class="ph"><b>Contacto y apartados</b><span class="mail">soporte.TI@vemo.com.mx</span><br>Eduardo Medina, IT Manager<br>Maximiliano Paredes, IT Engineer</div>
+<div class="ph"><b>Calificación de estética (1–10)</b>Se refiere al aspecto físico, no al funcionamiento.</div></div><details class="tc" id="terminos"><summary>Términos y condiciones</summary><ol><li><b>Quién puede comprar.</b> Solo personal activo de la empresa y de las empresas del grupo, al momento de apartar y de recibir el equipo.</li><li><b>Límite por persona.</b> Máximo 2 equipos por colaborador. En la primera etapa cada colaborador puede apartar 1 equipo; en una segunda etapa, cuya fecha anunciará TI, podrá apartar un segundo si quedan equipos disponibles.</li><li><b>Apartado.</b> Envía un correo a <b>soporte.TI@vemo.com.mx</b> con el número de equipo, tu nombre completo, número de empleado y forma de pago. Los equipos se asignan por orden de llegada, según la hora de recepción del correo. TI confirma el apartado por correo.</li><li><b>Estado de los equipos.</b> Son equipos usados con más de 2 años de uso continuo. Pueden presentar batería desgastada (menor duración), teclas gastadas o despintadas, rayones, golpes y otros detalles estéticos, además de los indicados en cada ficha.</li><li><b>Qué incluye.</b> Cada equipo se entrega formateado, sin información ni software de la empresa, con Windows 11 instalado y <b>sin activar</b>, y <b>sin Microsoft Office</b>. Incluye cargador, excepto el equipo #82 (Dell G3 15).</li><li><b>Forma de pago.</b> De contado al momento de la entrega, o por descuento vía nómina en un plazo máximo de 3 meses (hasta 6 descuentos quincenales iguales), con autorización firmada.</li><li><b>Revisión y entrega.</b> TI avisa por correo cuando el equipo está listo. La entrega es en la oficina <b>Omega</b>. Antes de firmar puedes encender y revisar el equipo frente a personal de TI; si no corresponde a su ficha, puedes rechazarlo sin costo.</li><li><b>Plazo para recoger.</b> Tienes 7 días hábiles a partir del aviso. Si no recoges el equipo en ese plazo, el apartado se cancela y pasa a la siguiente persona en lista.</li><li><b>Venta sin garantía.</b> Los equipos se venden en el estado en que se encuentran. Después de la entrega no hay garantía, devoluciones, cambios ni soporte técnico, y la empresa no se hace responsable de fallas o situaciones posteriores a la venta. Por eso los precios son simbólicos.</li><li><b>Documento de compraventa.</b> Al recibir el equipo se firma una carta de compraventa y conformidad, y en su caso la autorización de descuento vía nómina.</li></ol></details></header>
 <div class="bar"><div>
 <input id="q" placeholder="Buscar por número, modelo o procesador…" aria-label="Buscar">
 <select id="fm" aria-label="Marca"><option value="">Todas las marcas</option></select>
 <select id="fr" aria-label="RAM"><option value="">Cualquier RAM</option></select>
 <select id="fe" aria-label="Estética"><option value="">Cualquier estética</option><option value="7.5">7.5 o más</option><option value="7">7 o más</option><option value="6">6 o más</option></select>
-<select id="fo" aria-label="Orden"><option value="no">Ordenar: número</option><option value="est">Ordenar: mejor estética</option><option value="ram">Ordenar: más RAM</option></select>
+<select id="fo" aria-label="Orden"><option value="no">Ordenar: número</option><option value="est">Ordenar: mejor estética</option><option value="ram">Ordenar: más RAM</option><option value="pa">Ordenar: menor precio</option><option value="pd">Ordenar: mayor precio</option></select>
 <span class="count" id="ct"></span></div></div>
 <main id="g"></main>
-<footer>Fotos reales de cada equipo. Precios por definir. Pantalla, gráficos, puertos y peso corresponden a la configuración base del fabricante para cada modelo.</footer>
+<footer>Fotos reales de cada equipo. Precios en pesos mexicanos. Pantalla, gráficos, puertos y peso corresponden a la configuración base del fabricante para cada modelo.</footer>
 <dialog id="d"><div style="position:relative"><button class="x" id="dx" aria-label="Cerrar">✕</button><img class="big" id="bi" alt=""></div><div class="th" id="th"></div><div class="md" id="md"></div></dialog>
 <script>
 let D=[];const $=s=>document.querySelector(s);
@@ -66,12 +68,12 @@ fetch('items.json').then(r=>r.json()).then(j=>{D=j;
 ['q','fm','fr','fe','fo'].forEach(id=>$('#'+id).addEventListener('input',render));
 function render(){const q=$('#q').value.toLowerCase().trim(),m=$('#fm').value,r=$('#fr').value,e=$('#fe').value,o=$('#fo').value;
  let L=D.filter(x=>(!m||x.marca==m)&&(!r||x.ram==r)&&(!e||x.est>=+e)&&(!q||`#${pad(x.no)} ${x.no} ${x.marca} ${x.modelo} ${x.cpu} ${x.obs} ${x.pantalla} ${x.graficos} ${x.puertos}`.toLowerCase().includes(q)));
- L.sort((a,b)=>o=='est'?b.est-a.est||a.no-b.no:o=='ram'?parseInt(b.ram)-parseInt(a.ram)||a.no-b.no:a.no-b.no);
+ L.sort((a,b)=>o=='pa'?a.precio-b.precio||a.no-b.no:o=='pd'?b.precio-a.precio||a.no-b.no:o=='est'?b.est-a.est||a.no-b.no:o=='ram'?parseInt(b.ram)-parseInt(a.ram)||a.no-b.no:a.no-b.no);
  $('#ct').textContent=L.length+' de '+D.length+' equipos';
  $('#g').innerHTML=L.length?L.map(x=>`<button class="c" data-n="${x.no}"><img loading="lazy" src="${x.img[0]}" alt="${esc(x.marca+' '+x.modelo)}">
  <div class="cb"><div class="no">EQUIPO #${pad(x.no)}</div><h3>${esc(x.marca)} ${esc(x.modelo)}</h3>
  <div class="sp">${esc(x.cpu)} · ${x.ram} RAM · ${esc(x.disco)}<br>${esc(x.pantalla)}</div>${x.obs?`<div class="obs">${esc(x.obs)}</div>`:''}
- <div class="row"><span class="pill ${x.estlabel}">Estética ${x.est}/10</span><span class="price">Precio: por definir</span></div></div></button>`).join(''):'<div class="empty">No hay equipos con esos filtros.</div>';
+ <div class="row"><span class="pill ${x.estlabel}">Estética ${x.est}/10</span><span class="price"><b>$${x.precio.toLocaleString('es-MX')}</b><small>o 6 quincenas de $${x.quincena.toFixed(2)}</small></span></div></div></button>`).join(''):'<div class="empty">No hay equipos con esos filtros.</div>';
  document.querySelectorAll('.c').forEach(c=>c.onclick=()=>open_(+c.dataset.n));}
 function open_(n){const x=D.find(y=>y.no==n);
  const show=i=>{$('#bi').src=x.img[i];document.querySelectorAll('#th img').forEach((t,k)=>t.classList.toggle('on',k==i));};
@@ -79,7 +81,7 @@ function open_(n){const x=D.find(y=>y.no==n);
  document.querySelectorAll('#th img').forEach((t,i)=>t.onclick=()=>show(i));
  $('#md').innerHTML=`<div class="no">EQUIPO #${pad(x.no)}</div><h2>${esc(x.marca)} ${esc(x.modelo)}</h2>
  <div class="grid"><div><span>Procesador</span>${esc(x.cpu)}</div><div><span>Memoria RAM</span>${x.ram}</div><div><span>Almacenamiento</span>${esc(x.disco)}</div>
- <div><span>Estética</span>${x.est}/10</div><div><span>Precio</span>Por definir</div>
+ <div><span>Estética</span>${x.est}/10</div><div><span>Precio</span><b>$${x.precio.toLocaleString('es-MX')} MXN</b><br><small>o 6 quincenas de $${x.quincena.toFixed(2)}</small></div>
  <div><span>Pantalla</span>${esc(x.pantalla)}</div><div><span>Gráficos</span>${esc(x.graficos)}</div><div><span>Peso aprox.</span>${esc(x.peso)}</div></div>
  <div class="grid"><div style="grid-column:1/-1"><span>Puertos</span>${esc(x.puertos)}</div></div>
  ${x.obs?`<div class="obs"><b>Observaciones:</b> ${esc(x.obs)}</div>`:'<div class="sp">Sin observaciones adicionales.</div>'}`;
